@@ -1,0 +1,18 @@
+.login-content {
+    margin: 64px 32px;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    .login-actions {
+        margin-top: 10px;
+        .remember-forgot-password {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .button-submit {
+            margin: 24px 0px 16px 0px;
+        }
+    }
+}
+

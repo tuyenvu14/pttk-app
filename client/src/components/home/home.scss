@@ -1,0 +1,61 @@
+.home {
+    .header {
+        position: relative;
+        margin-bottom: 4rem;
+        img {
+            height: 350px;
+            width: 100%;
+        }
+        .button-home {
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            text-decoration: underline;
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        h1 {
+            // color: white;
+            position: absolute;
+            top: 35%;
+            left: 27%;
+            color: #ffffff; font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px;
+        }
+        .menu {
+            position: absolute;
+            bottom: -20px;
+            left: 28%;
+            box-shadow: 5px 5px 5px #aaaaaa;
+            .icon {
+                padding: 20px 25px;
+                background-color: white;
+                color: black;
+                width: 150px;
+            }
+
+
+        }
+    }
+    .content {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        &-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            img{
+                height: 80%;
+                width: 80%;
+            }
+            span {
+                margin-top: 12px;
+            }
+        }
+    }
+}
