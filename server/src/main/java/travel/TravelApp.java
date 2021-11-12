@@ -10,7 +10,7 @@ import travel.service.UserService;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-public class TravelApp {
+public class TravelApp implements CommandLineRunner {
 
   final UserService userService;
 
@@ -22,24 +22,24 @@ public class TravelApp {
   public ModelMapper modelMapper() {
     return new ModelMapper();
   }
-//
-//  @Override
-//  public void run(String... params) throws Exception {
-//    AppUser admin = new AppUser();
-//    admin.setUsername("admin");
-//    admin.setPassword("admin");
-//    admin.setEmail("admin@email.com");
-//    admin.setAppUserRoles(new ArrayList<AppUserRole>(Arrays.asList(AppUserRole.ROLE_ADMIN)));
-//
-//    userService.signup(admin);
-//
-//    AppUser client = new AppUser();
-//    client.setUsername("client");
-//    client.setPassword("client");
-//    client.setEmail("client@email.com");
-//    client.setAppUserRoles(new ArrayList<AppUserRole>(Arrays.asList(AppUserRole.ROLE_CLIENT)));
-//
-//    userService.signup(client);
-//  }
+
+  @Override
+  public void run(String... params) throws Exception {
+    AppUser admin = new AppUser();
+    admin.setUsername("admin");
+    admin.setPassword("admin");
+    admin.setEmail("admin@email.com");
+    admin.setAppUserRoles(new ArrayList<AppUserRole>(Arrays.asList(AppUserRole.ROLE_ADMIN)));
+
+    userService.signup(admin);
+
+    AppUser client = new AppUser();
+    client.setUsername("client");
+    client.setPassword("client");
+    client.setEmail("client@email.com");
+    client.setAppUserRoles(new ArrayList<AppUserRole>(Arrays.asList(AppUserRole.ROLE_CLIENT)));
+
+    userService.signup(client);
+  }
 
 }
