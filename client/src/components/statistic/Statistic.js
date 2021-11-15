@@ -22,7 +22,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import DatePicker from "react-datepicker";
 import Detail from "./detail/Detail";
 import { converVND } from "../../common/Common";
 import DateFnsUtils from "@date-io/date-fns";
@@ -66,7 +65,7 @@ export default function Statistic() {
   const [name, setName] = useState();
   const [dataStatistic, setDataStatistic] = useState();
   const [pageCurrent, setPageCurrent] = useState(0);
-  const [size, setSize] = useState(2);
+  const [size, setSize] = useState(5);
 
   const [selectedDate, handleDateChange] = useState(new Date());
 
@@ -193,31 +192,42 @@ export default function Statistic() {
             </TableHead>
             <TableBody>
               {dataStatistic &&
-                dataStatistic.statistic.map((row) => (
-                  <StyledTableRow
-                    key={row.id}
-                    className="row"
-                    onClick={() => {
-                      setOpen(true);
-                      setName(row.name);
-                    }}
-                  >
-                    <StyledTableCell align="center">{row.id}</StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
-                      {row.name}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {row.totalTour}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {row.totalCustomer}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {converVND(row.totalMonney)}
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))}
+                dataStatistic.statistic.map((row) =>
+                  row ? (
+                    <StyledTableRow
+                      key={row.id}
+                      className="row"
+                      style={{ height: "53px" }}
+                      onClick={() => {
+                        setOpen(true);
+                        setName(row.name);
+                      }}
+                    >
+                      <StyledTableCell align="center">{row.id}</StyledTableCell>
+                      <StyledTableCell component="th" scope="row">
+                        {row.name}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        {row.totalTour}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        {row.totalCustomer}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        {converVND(row.totalMonney)}
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ) : (
+                    <TableRow>
+                      <TableCell
+                        colSpan={5}
+                        style={{ height: "20px" }}
+                      ></TableCell>
+                    </TableRow>
+                  )
+                )}
             </TableBody>
+
             <TableRow>
               <TableCell align="center" colSpan={5}>
                 <Grid

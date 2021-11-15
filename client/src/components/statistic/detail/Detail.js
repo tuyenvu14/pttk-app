@@ -41,7 +41,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function Detail({ data }) {
   const [dataStatisticDetail, setDataStatisticDetail] = useState();
   const [pageCurrent, setPageCurrent] = useState(0);
-  const [size, setSize] = useState(2);
+  const [size, setSize] = useState(3);
   const { open, handleClickOpen, handleClose, name, startDate, endDate } = data;
 
   useEffect(() => {
@@ -97,27 +97,45 @@ export default function Detail({ data }) {
               </TableHead>
               <TableBody>
                 {dataStatisticDetail &&
-                  dataStatisticDetail.detail.map((row) => (
-                    <StyledTableRow key={row.id} className="row">
-                      <StyledTableCell align="center">{row.id}</StyledTableCell>
-                      <StyledTableCell component="th" scope="row">
-                        {row.nameCustomer}
-                      </StyledTableCell>
-                      <StyledTableCell align="left">
-                        {converTimestampToDate(row.startDate)}
-                      </StyledTableCell>
-                      <StyledTableCell align="left">
-                        {row.nameTour}
-                      </StyledTableCell>
-                      <StyledTableCell align="right">
-                        {row.totalCustomer}
-                      </StyledTableCell>
-                      <StyledTableCell align="right">
-                        {converVND(row.totalMonney)}
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  ))}
+                  dataStatisticDetail.detail.map((row) =>
+                    row ? (
+                      <StyledTableRow
+                        key={row.id}
+                        className="row"
+                        style={{ height: "53px" }}
+                      >
+                        <StyledTableCell align="center">
+                          {row.id}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                          {row.nameCustomer}
+                        </StyledTableCell>
+                        <StyledTableCell align="left">
+                          {converTimestampToDate(row.startDate)}
+                        </StyledTableCell>
+                        <StyledTableCell align="left">
+                          {row.nameTour}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {row.totalCustomer}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {converVND(row.totalMonney)}
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    ) : (
+                      <TableRow>
+                        <TableCell
+                          colSpan={6}
+                          style={{ height: "20px" }}
+                        ></TableCell>
+                      </TableRow>
+                    )
+                  )}
               </TableBody>
+              {/* <TableRow>
+                <TableCell align="center" colSpan={6}></TableCell>
+              </TableRow> */}
               <TableRow>
                 <TableCell align="center" colSpan={6}>
                   {dataStatisticDetail && dataStatisticDetail.total === 0 && (

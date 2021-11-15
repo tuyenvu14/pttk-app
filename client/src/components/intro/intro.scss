@@ -7,9 +7,9 @@
     }
     .navbar {
         color: white;
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: 200px;
+        right: 100px;
         padding: 10px;
         font-size: 20px;
         font-weight: 500;
@@ -25,8 +25,8 @@
         color: white;
         font-size: 30px;
         font-weight: bold;
-        position: absolute;
-        top: 35%;
+        position: fixed;
+        top: 70%;
         left: 100px;
         // display: flex;
         // flex-direction: column;

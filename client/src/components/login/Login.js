@@ -37,10 +37,10 @@ export default function Login() {
         .then((response) => {
           if (response.status === 200) {
             window.localStorage.setItem("token", response.data);
-            console.log(response.data);
             navigate("/home");
           }
         })
+
         .catch((err) => console.warn(err));
     }
     // navigate("/home");
@@ -73,32 +73,32 @@ export default function Login() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              User Login
+              TuyenTravel Đăng nhập
             </Typography>
             <Grid className="login-actions">
               <TextField
                 margin="normal"
                 fullWidth
                 value={email}
-                placeholder="Email Address"
-                label="Email Address"
+                placeholder="Nhập tên đăng nhập"
+                label="Tên đăng nhập"
                 onChange={(e) => handleChangeEmail(e.target.value)}
               />
               <TextField
                 margin="normal"
                 fullWidth
                 value={password}
-                placeholder="Password"
-                label="Password"
+                placeholder="Nhập mật khẩu"
+                label="Mật khẩu"
                 type="password"
                 onChange={(e) => handleChangePassword(e.target.value)}
               />
               <Grid className="remember-forgot-password">
                 <Grid>
                   <Checkbox value="remember" color="primary" />
-                  Remember me
+                  Nhớ mật khẩu
                 </Grid>
-                <Grid>Forgot password?</Grid>
+                <Grid>Quên mật khẩu?</Grid>
               </Grid>
               <Button
                 type="submit"
@@ -107,7 +107,7 @@ export default function Login() {
                 className="button-submit"
                 onClick={handleSubmit}
               >
-                Sign In
+                Đăng nhập
               </Button>
             </Grid>
           </Grid>

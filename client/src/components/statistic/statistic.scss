@@ -22,8 +22,9 @@
             justify-content: space-between;
         }
         .table {
-            cursor: pointer;
+            
             tr:hover {
+                cursor: pointer;
                 background-color: gray;
             }
         }
